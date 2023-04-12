@@ -16,20 +16,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public int scoreCount;
 
-    //private int _property;
-    //public int propertyscore          Propert olarak score yazmak istersek böyle property oluþturulabilir. 
-    //{
-    //    get
-    //    {
-    //        return _property;
-    //    }
-    //    set
-    //    {
-    //        _property = value;
-    //    }
-    //}
-
-    // Start is called before the first frame update
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
@@ -41,13 +27,6 @@ public class GameManager : MonoBehaviour
             return;
         }
         OnlyGameManager = this;
-        //DontDestroyOnLoad(this.gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public static GameManager GetInstnce()
@@ -88,36 +67,4 @@ public class GameManager : MonoBehaviour
         Timer.GetInstance().TimeStart();
         isGameEnding = false;
     }
-
-    //public void ScoreTextter()
-    //{
-    //    //text.text = scoreCount.ToString();
-    //    scoreText.text = string.Format("Puan = {0}",scoreCount);
-    //}
-
-    //void CooinBearer()
-    //{
-    //    if (coinManager.gameObject.activeSelf == false)
-    //    {
-    //        print("False");
-    //        //coinManager.gameObject.SetActive(true);
-    //    }
-    //}
-
-    //public void NextLevelCaller()
-    //{
-    //    panelText.text = "Congratulations!\r\nMission Complete\r\n\n\nTotal Score : " + scoreCount;
-    //    print(panelText.text);
-    //    LevelUpPannel.SetActive(true);
-    //    //panelText.text = string.Format("Congratulations!\r\nMission Complete\r\nTotal Score : {0}", scoreCount);
-        
-    //    Invoke("NextLevel", 1.5f);
-    //}
-
-    //public void NextLevel()
-    //{
-    //    LevelUpPannel.SetActive(false);
-    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-    //}
 }

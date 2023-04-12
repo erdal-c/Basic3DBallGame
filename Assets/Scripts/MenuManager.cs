@@ -32,7 +32,6 @@ public class MenuManager : MonoBehaviour
             {
                 Timer.GetInstance().GetTotalTime();
                 winSound.Play();
-                print("denebee");
                 print(Timer.GetInstance().ActiveCheck());
                 
             }           
@@ -66,11 +65,7 @@ public class MenuManager : MonoBehaviour
             SceneManager.LoadScene(1);
             Timer.GetInstance().TotalTimeCleaner();
             Timer.GetInstance().TimeStart();
-            UIUpdater.updaterInsatnce.TotalScoreZero();
-            
-            //Timer.GetInstance().GetTotalTime();
-
-            //IUpdater.updaterInsatnce.ConitinueButton();
+            UIUpdater.updaterInsatnce.TotalScoreZero();        
         }    
     }
 

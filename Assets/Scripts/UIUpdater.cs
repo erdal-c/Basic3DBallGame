@@ -33,21 +33,12 @@ public class UIUpdater : MonoBehaviour
             {
                 Timer.GetInstance().TimeStart();
             }
-            print("destroyyy");
+
             return;
         }
         updaterInsatnce = this;
         print("Id : " + updaterInsatnce.GetInstanceID());
-        DontDestroyOnLoad(this.gameObject);
-
-        //print(GameManager.GetInstnce().GetScore());
-          
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DontDestroyOnLoad(this.gameObject);          
     }
 
     public int TotalScoreCount()
@@ -67,34 +58,17 @@ public class UIUpdater : MonoBehaviour
     public void NextLevelCaller()
     {
         panelText.text = "Congratulations!\r\nLevel Complete\r\n\n\nScore : " + GameManager.GetInstnce().GetScore();
-        print(panelText.text);
 
         totalScore += GameManager.GetInstnce().GetScore();
-        //LevelUpPannel.SetActive(true);
-
-        //panelText.text = string.Format("Congratulations!\r\nMission Complete\r\nTotal Score : {0}", scoreCount);
 
         Timer.GetInstance().GetTotalTime();
         print(Timer.GetInstance().GetTotalTime());
 
         animBool = FindObjectOfType<Animator>();
-        //animBool.SetBool("PanelActive", true);
-        //print("before invoke");
-        //Invoke("NextLevel", 1.5f);
-        //print("after invoke");
 
         levelUpSound.Play();
         StartCoroutine(PanelShow());
         StartCoroutine(NextLvlCouroutine());
-    }
-
-    public void NextLevel()
-    {
-        print("is Invoking : " + IsInvoking("NextLevel"));
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        animBool.SetBool("PanelActive", false);
-        LevelUpPannel.SetActive(false);
-        Timer.GetInstance().TimeStart();
     }
 
     IEnumerator NextLvlCouroutine()
@@ -102,7 +76,6 @@ public class UIUpdater : MonoBehaviour
         yield return new WaitForSeconds(1.4f);        
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         Timer.GetInstance().TimeStart();
-        print(GameManager.GetInstnce().GetScore());
         GameManager.GetInstnce().ScoreZero();
         ScoreTextter();
     }
@@ -140,7 +113,7 @@ public class UIUpdater : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void MainMenuButton()   //Pause menudeki Main menu butonu için
+    public void MainMenuButton()   
     {
         buttonSound.Play();
         Time.timeScale = 1;

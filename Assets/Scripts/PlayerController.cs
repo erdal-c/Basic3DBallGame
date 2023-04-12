@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 respawnPoint;
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rigidbody = this.gameObject.GetComponent<Rigidbody>();
@@ -30,7 +28,6 @@ public class PlayerController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
@@ -38,30 +35,19 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //rigidbody.AddForce(0, 0, playerSpeed);
         PlayerFrwMovement();
         rigidbody.velocity = new Vector3(movementSpeed*movement, rigidbody.velocity.y, rigidbody.velocity.z);
-
     }
 
     void PlayerFrwMovement()
     {
-        //if (verticalMove>=0)
-        //{
-        //    ;
-        //    rigidbody.AddForce(0, 0, playerSpeed*verticalMove);
-        //}
         rigidbody.AddForce(0, 0, playerSpeed * verticalMove * Time.fixedDeltaTime);
-        
-        //Debug.Log(Input.GetAxis("Vertical"));  Vertical ( dikey) hýz -1, 1  arasýnda deðer alýr. Bu satýr ile bu deðeri yazdýrýyoruz.
-
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.CompareTag("Barrier"))
         {
-            //this.transform.position = respawnPoint;        Ýlk Hali bu þekilde
             rigidbody.velocity = Vector3.zero;
             gameManager.PlayerRespawner();
             UIUpdater.updaterInsatnce.crashSound.Play();

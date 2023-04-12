@@ -17,14 +17,4 @@ public class UIPersist : MonoBehaviour
         OnlyPersistObject = this;
         DontDestroyOnLoad(this.gameObject);
     }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

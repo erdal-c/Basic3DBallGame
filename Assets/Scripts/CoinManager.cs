@@ -33,7 +33,6 @@ public class CoinManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.scoreCount += 1;
-            //Destroy(gameObject);
             gameObject.SetActive(false);
             UIUpdater.updaterInsatnce.ScoreTextter();
             UIUpdater.updaterInsatnce.coinSound.Play();
@@ -46,7 +45,6 @@ public class CoinManager : MonoBehaviour
         {
             if (lis.gameObject.activeSelf == false)
             {
-                print("False");
                 lis.gameObject.SetActive(true);
             }
         }
@@ -56,7 +54,6 @@ public class CoinManager : MonoBehaviour
     {
         if (gameObject.activeSelf == false)
         {
-            print("False");
             gameObject.SetActive(true);
         }
     }

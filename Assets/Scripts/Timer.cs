@@ -24,11 +24,7 @@ public class Timer : MonoBehaviour
             print("Id : " + timerInstance.GetInstanceID());
             return;
         }
-        print("Ýs Null? : "+timerInstance.IsUnityNull());
         timerInstance = this;
-        print("Id : "+timerInstance.GetInstanceID());
-        
-        //DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -37,9 +33,7 @@ public class Timer : MonoBehaviour
         if (timerActive==true) 
         {
             currentTime += Time.deltaTime;
-            //print(currentTime);
             TimeSpan timeCurrent = TimeSpan.FromSeconds(currentTime);
-            //timeText.text = time.Minutes.ToString() +":"+ time.Seconds.ToString();
             timeText.text = timeCurrent.ToString(@"mm\:ss\:ff");
         }
     }
