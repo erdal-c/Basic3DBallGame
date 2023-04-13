@@ -121,6 +121,7 @@ public class UIUpdater : MonoBehaviour
         Timer.GetInstance().TimeStop();
         Timer.GetInstance().TimeZero();
         totalScore= 0;
+        GameManager.GetInstnce().ScoreZero();
         SceneManager.LoadScene(0);
     }
 

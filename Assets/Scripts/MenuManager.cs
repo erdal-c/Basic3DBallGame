@@ -46,6 +46,7 @@ public class MenuManager : MonoBehaviour
             Timer.GetInstance().TimeStart();
         }
         SceneManager.LoadScene(1);
+        UIUpdater.updaterInsatnce.ScoreTextter();
         startSound.Play();
     }
 
